@@ -34,11 +34,14 @@ public class Button : MonoBehaviour
                 }
                 else
                 {
-                    GameManager.Instance.menuTwo.SetActive(true);
-                    GameManager.Instance.menuOne.SetActive(false);
-                    PlayerPrefs.SetInt("currentUnit", 0);
-                    PlayerPrefs.SetInt("currentPrice", 0);
-                    PlayerPrefs.SetString("currentPlayer", "playerTwo");
+                    if(PlayerPrefs.GetInt("spawnersOne") == 3)
+                    {
+                        GameManager.Instance.menuTwo.SetActive(true);
+                        GameManager.Instance.menuOne.SetActive(false);
+                        PlayerPrefs.SetInt("currentUnit", 0);
+                        PlayerPrefs.SetInt("currentPrice", 0);
+                        PlayerPrefs.SetString("currentPlayer", "playerTwo");
+                    }  
                 }
             }else if(PlayerPrefs.GetString("currentPlayer") == "playerTwo")
             {
@@ -48,7 +51,8 @@ public class Button : MonoBehaviour
                 }
                 else
                 {
-                    GameManager.Instance.menuTwo.SetActive(false);
+                    if (PlayerPrefs.GetInt("spawnersTwo") == 3)
+                        GameManager.Instance.menuTwo.SetActive(false);
                 }
             }
             

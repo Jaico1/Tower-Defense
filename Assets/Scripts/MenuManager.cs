@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     public bool menuTwo;
 
     public Text budget;
+    public Text spawnerCount;
 
     /*public Button soldierButton;
     public Button archerButton;
@@ -47,10 +48,13 @@ public class MenuManager : MonoBehaviour
         if (menuOne)
         {
             budget.text = "BUDGET: $" + PlayerPrefs.GetInt("budgetOne");
+            spawnerCount.text = "SPAWNERS: " + PlayerPrefs.GetInt("spawnersOne") + "/3";
         }
         else if (menuTwo)
         {
             budget.text = "BUDGET: $" + PlayerPrefs.GetInt("budgetTwo");
+            spawnerCount.text = "SPAWNERS: " + PlayerPrefs.GetInt("spawnersTwo") + "/3";
         }
+        
     }
 }

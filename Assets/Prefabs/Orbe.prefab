@@ -246,6 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1615637075155926708}
+  - component: {fileID: 6505523814594846630}
   m_Layer: 0
   m_Name: Orbe
   m_TagString: Untagged
@@ -270,6 +271,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6505523814594846630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615637075155926709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da70e5c0c35b4f46845967d358cfcb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbOne: {fileID: 1615637074962522785}
+  orbTwo: {fileID: 1615637075299379420}
 --- !u!1 &1615637075299379420
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 03689c0f1f35b41c5bceb785885fe716, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

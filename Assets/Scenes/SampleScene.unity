@@ -1781,6 +1781,7 @@ MonoBehaviour:
   menuOne: 0
   menuTwo: 1
   budget: {fileID: 475614468}
+  spawnerCount: {fileID: 739396339}
   pointer: {fileID: 1665621393}
 --- !u!1 &519420028
 GameObject:
@@ -9165,7 +9166,7 @@ MonoBehaviour:
   heroPrefab: {fileID: 2404318617904561223, guid: 9ecf3c1005e460842ababa38a1d15025, type: 3}
   fencePrefab: {fileID: 6071223745527011057, guid: 5b7afe67e5788d84bb86f59555d34321, type: 3}
   wallPrefab: {fileID: 4411478820367031309, guid: 50483f014ccce674e85d3f0062bd2fcc, type: 3}
-  orbPrefab: {fileID: 1615637075155926709, guid: 2882b168834fd8c4b9570f91d5a8db13, type: 3}
+  orbPrefab: {fileID: 6505523814594846630, guid: 2882b168834fd8c4b9570f91d5a8db13, type: 3}
 --- !u!4 &1674288155
 Transform:
   m_ObjectHideFlags: 0
@@ -10023,6 +10024,7 @@ MonoBehaviour:
   menuOne: 1
   menuTwo: 0
   budget: {fileID: 298051027}
+  spawnerCount: {fileID: 1162215332}
   pointer: {fileID: 1303307685}
 --- !u!1001 &2404318618395232675
 PrefabInstance:

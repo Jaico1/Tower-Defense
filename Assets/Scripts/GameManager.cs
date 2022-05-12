@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject heroPrefab;
     [SerializeField] GameObject fencePrefab;
     [SerializeField] GameObject wallPrefab;
-    [SerializeField] GameObject orbPrefab;
+    [SerializeField] Spawner orbPrefab;
 
 
     private void Awake()
@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("currentUnit", 0);
         PlayerPrefs.SetInt("currentPrice", 0);
+        PlayerPrefs.SetInt("spawnersOne", 0);
+        PlayerPrefs.SetInt("spawnersTwo", 0);
         PlayerPrefs.SetString("currentPlayer", "playerOne");
         menuOne.SetActive(true);
         menuTwo.SetActive(false);
@@ -70,7 +72,12 @@ public class GameManager : MonoBehaviour
                             GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
                             break;
                         case 8:
-                            GameObject orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            if(PlayerPrefs.GetInt("spawnersOne") != 3)
+                            {
+                                PlayerPrefs.SetInt("spawnersOne", PlayerPrefs.GetInt("spawnersOne")+1);
+                                Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                                orb.orbOne.SetActive(true);
+                            }
                             break;
                     }
                     PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
@@ -107,7 +114,13 @@ public class GameManager : MonoBehaviour
                             GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
                             break;
                         case 8:
-                            GameObject orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            if (PlayerPrefs.GetInt("spawnersTwo") != 3)
+                            {
+                                PlayerPrefs.SetInt("spawnersTwo", PlayerPrefs.GetInt("spawnersTwo") + 1);
+                                Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                                orb.orbTwo.SetActive(true);
+                            }
+                                
                             break;
                     }
                     PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
