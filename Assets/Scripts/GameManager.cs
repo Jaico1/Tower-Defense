@@ -46,41 +46,123 @@ public class GameManager : MonoBehaviour
             {
                 if(PlayerPrefs.GetInt("budgetOne") >= PlayerPrefs.GetInt("currentPrice"))
                 {
+                    bool val= CheckPosition(spawnPosition.x, spawnPosition.y,1);
                     switch (PlayerPrefs.GetInt("currentUnit"))
                     {
                         case 0:
                             break;
                         case 1:
-                            GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                            break;
+                            //GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            //Debug.Log("x: "+ spawnPosition.x + "y: "+ spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
+
+                                break;
                         case 2:
-                            GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            //GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            //Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
+
                             break;
                         case 3:
-                            GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            //GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x , spawnPosition.y), Quaternion.identity);
+                            Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
                             break;
                         case 4:
-                            GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            //GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            //Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
                             break;
                         case 5:
-                            GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            //GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            //Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
                             break;
                         case 6:
-                            GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            //GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            //Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
                             break;
                         case 7:
-                            GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            //GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            //Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                            if (val.Equals(true))
+                            {
+                                GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                            }
+                            else
+                            {
+                                Debug.Log("Ouside Area");
+                            }
                             break;
                         case 8:
                             if(PlayerPrefs.GetInt("spawnersOne") != 3)
                             {
-                                PlayerPrefs.SetInt("spawnersOne", PlayerPrefs.GetInt("spawnersOne")+1);
-                                Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                                orb.orbOne.SetActive(true);
+                                //PlayerPrefs.SetInt("spawnersOne", PlayerPrefs.GetInt("spawnersOne")+1);
+                                //Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x , spawnPosition.y), Quaternion.identity);
+                                //Debug.Log("x: " + spawnPosition.x + "y: " + spawnPosition.y);
+                                if (val.Equals(true))
+                                {
+                                    PlayerPrefs.SetInt("spawnersOne", PlayerPrefs.GetInt("spawnersOne") + 1);
+                                    Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                    orb.orbOne.SetActive(true);
+                                }
+                                else
+                                {
+                                    Debug.Log("Ouside Area");
+                                }
+                                
                             }
                             break;
                     }
-                    PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
+                    if (val.Equals(true))
+                    {
+                        PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
+                    }
+
+                        
                 }
                 
             }
@@ -129,5 +211,16 @@ public class GameManager : MonoBehaviour
             }
             
         }
+    }
+
+    public bool CheckPosition(float x, float y, int player)
+    {
+        if ((player==1) && ((x > -0.01) || (y > 0.62) || (y < -0.62) || (x < -1.412)))
+        {
+            //Debug.Log("Outside Area");
+            return false;
+        }
+        else
+            return true;
     }
 }
