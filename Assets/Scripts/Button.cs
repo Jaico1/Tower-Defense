@@ -8,6 +8,7 @@ public class Button : MonoBehaviour
     public bool readyButton;
     public bool playerOne;
     public bool playerTwo;
+    public int unit;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class Button : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt("currentUnit", unit);
             MenuManager.Instance.pointer.transform.position = new Vector2(this.transform.position.x + (float)0.5, this.transform.position.y);
                 if (playerOne)
                     PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - price);
