@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("currentUnit", 0);
+        PlayerPrefs.SetInt("currentPrice", 0);
         PlayerPrefs.SetString("currentPlayer", "playerOne");
         menuOne.SetActive(true);
         menuTwo.SetActive(false);
@@ -36,37 +37,82 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            switch (PlayerPrefs.GetInt("currentUnit"))
+            if (PlayerPrefs.GetString("currentPlayer") == "playerOne")
             {
-                case 0:
-                    break;
-                case 1:
-                    GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 2:
-                    GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 3:
-                    GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 4:
-                    GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 5:
-                    GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 6:
-                    GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 7:
-                    GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
-                case 8:
-                    GameObject orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
-                    break;
+                if(PlayerPrefs.GetInt("budgetOne") >= PlayerPrefs.GetInt("currentPrice"))
+                {
+                    switch (PlayerPrefs.GetInt("currentUnit"))
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 2:
+                            GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 3:
+                            GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 4:
+                            GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 5:
+                            GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 6:
+                            GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 7:
+                            GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 8:
+                            GameObject orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                    }
+                    PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
+                }
+                
+            }
+            else if(PlayerPrefs.GetString("currentPlayer") == "playerTwo")
+            {
+                if (PlayerPrefs.GetInt("budgetTwo") >= PlayerPrefs.GetInt("currentPrice"))
+                {
+                    switch (PlayerPrefs.GetInt("currentUnit"))
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 2:
+                            GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 3:
+                            GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 4:
+                            GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 5:
+                            GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 6:
+                            GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 7:
+                            GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                        case 8:
+                            GameObject orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x + (float)1.1, spawnPosition.y), Quaternion.identity);
+                            break;
+                    }
+                    PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
+                }
+                    
             }
             
         }

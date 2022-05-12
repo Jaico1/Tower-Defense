@@ -36,6 +36,8 @@ public class Button : MonoBehaviour
                 {
                     GameManager.Instance.menuTwo.SetActive(true);
                     GameManager.Instance.menuOne.SetActive(false);
+                    PlayerPrefs.SetInt("currentUnit", 0);
+                    PlayerPrefs.SetInt("currentPrice", 0);
                     PlayerPrefs.SetString("currentPlayer", "playerTwo");
                 }
             }else if(PlayerPrefs.GetString("currentPlayer") == "playerTwo")
@@ -55,11 +57,12 @@ public class Button : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("currentUnit", unit);
+            PlayerPrefs.SetInt("currentPrice", price);
             MenuManager.Instance.pointer.transform.position = new Vector2(this.transform.position.x + (float)0.5, this.transform.position.y);
-                if (playerOne)
+                /*if (playerOne)
                     PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - price);
                 else if (playerTwo)
-                    PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - price);
+                    PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - price);*/
         }
         
     }
