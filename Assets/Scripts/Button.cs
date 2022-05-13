@@ -9,6 +9,11 @@ public class Button : MonoBehaviour
     public bool playerOne;
     public bool playerTwo;
     public int unit;
+    public GameObject SWarning1;
+    public GameObject SWarning2;
+    public GameObject BWarning1;
+    public GameObject BWarning2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,7 @@ public class Button : MonoBehaviour
             {
                 if(PlayerPrefs.GetInt("budgetOne") > 0)
                 {
-
+                    StartCoroutine(LevelPopup(BWarning1));
                 }
                 else
                 {
@@ -41,18 +46,23 @@ public class Button : MonoBehaviour
                         PlayerPrefs.SetInt("currentUnit", 0);
                         PlayerPrefs.SetInt("currentPrice", 0);
                         PlayerPrefs.SetString("currentPlayer", "playerTwo");
+
                     }  
+                    else
+                        StartCoroutine(LevelPopup(SWarning1));
                 }
             }else if(PlayerPrefs.GetString("currentPlayer") == "playerTwo")
             {
                 if (PlayerPrefs.GetInt("budgetTwo") > 0)
                 {
-
+                    StartCoroutine(LevelPopup(BWarning2));
                 }
                 else
                 {
                     if (PlayerPrefs.GetInt("spawnersTwo") == 3)
                         GameManager.Instance.menuTwo.SetActive(false);
+                    else
+                        StartCoroutine(LevelPopup(SWarning2));
                 }
             }
             
@@ -69,5 +79,11 @@ public class Button : MonoBehaviour
                     PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - price);*/
         }
         
+    }
+    IEnumerator LevelPopup(GameObject screenV)
+    {
+        screenV.SetActive(true);
+        yield return new WaitForSeconds(2);
+        screenV.SetActive(false);
     }
 }
