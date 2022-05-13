@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Spawner orbPrefab;
     [SerializeField] GameObject Arenagrid;
 
+    public GameObject Screen1;
+    public GameObject Screen2;
+    public GameObject Warning1;
+    public GameObject Warning2;
 
     private void Awake()
     {
@@ -36,6 +40,7 @@ public class GameManager : MonoBehaviour
         menuOne.SetActive(true);
         menuTwo.SetActive(false);
         Arenagrid.GetComponent<Rigidbody2D>().simulated = false;
+        StartCoroutine(LevelPopup(Screen1));
     }
 
     // Update is called once per frame
@@ -281,11 +286,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator LevelPopup(GameObject screenV)
+    {
+
+        screenV.SetActive(true);
+        yield return new WaitForSeconds(2);
+        screenV.SetActive(false);
+    }
     public bool CheckPosition(float x, float y, int player)
     {
         if ((player==1) && ((x > -0.01) || (y > 0.62) || (y < -0.62) || (x < -1.412)))
         {
             //Debug.Log("Outside Area");
+            StartCoroutine(LevelPopup(Warning1));
             return false;
         }
         else
@@ -293,6 +306,7 @@ public class GameManager : MonoBehaviour
             if ((player == 2) && ((x < -0.05) || (y > 0.62) || (y < -0.62) || (x > 1.412)))
             {
                 //Debug.Log("Outside Area");
+                StartCoroutine(LevelPopup(Warning2));
                 return false;
             }
             else
