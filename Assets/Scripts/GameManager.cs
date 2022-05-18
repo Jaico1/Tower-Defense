@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject Warning1;
     public GameObject Warning2;
 
+    public Vector3 squarePos;
+
     private void Awake()
     {
         Instance = this;
@@ -48,12 +50,13 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 spawnPosition = squarePos;
             if (PlayerPrefs.GetString("currentPlayer") == "playerOne")
             {
                 if(PlayerPrefs.GetInt("budgetOne") >= PlayerPrefs.GetInt("currentPrice"))
                 {
-                    bool val= CheckPosition(spawnPosition.x, spawnPosition.y,1);
+                    //bool val= CheckPosition(spawnPosition.x, spawnPosition.y,1);
+                    bool val = true;
                     switch (PlayerPrefs.GetInt("currentUnit"))
                     {
                         case 0:
@@ -177,7 +180,8 @@ public class GameManager : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("budgetTwo") >= PlayerPrefs.GetInt("currentPrice"))
                 {
-                    bool val = CheckPosition(spawnPosition.x, spawnPosition.y, 2);
+                    //bool val = CheckPosition(spawnPosition.x, spawnPosition.y, 2);
+                    bool val = true;
                     switch (PlayerPrefs.GetInt("currentUnit"))
                     {
                         case 0:
@@ -295,7 +299,7 @@ public class GameManager : MonoBehaviour
     }
     public bool CheckPosition(float x, float y, int player)
     {
-        if ((player==1) && ((x > -0.01) || (y > 0.62) || (y < -0.62) || (x < -1.412)))
+        if ((player == 1) && ((x > -0.01) || (y > 0.62) || (y < -0.62) || (x < -1.412)))
         {
             //Debug.Log("Outside Area");
             StartCoroutine(LevelPopup(Warning1));
@@ -312,7 +316,7 @@ public class GameManager : MonoBehaviour
             else
                 return true;
         }
-            
+
 
 
     }
