@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridSquare : MonoBehaviour
 {
     
-    public GameObject Inner;
+    //public GameObject Inner;
     public BoxCollider2D co;
     
     public bool isOccupied;
@@ -13,18 +13,20 @@ public class GridSquare : MonoBehaviour
 
     void Start()
     {
-        co = Inner.GetComponent<BoxCollider2D>();
+        //co = Inner.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         
     }
 
     public void OnMouseDown()
     {
         Debug.Log("prueba");
-        GameManager.Instance.squarePos = Inner.GetComponent<Transform>().position;
+        GameManager.Instance.squarePos = this.GetComponent<Transform>().position;
+        GameManager.Instance.currentSquare = this;
     }
 }
