@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Arenagrid;
     public GridSquare currentSquare;
 
+    public int startgame = 0;
+
+    public GameObject grid1;
     public GameObject Screen1;
     public GameObject Screen2;
     public GameObject Warning1;
@@ -68,12 +71,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                soldier.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
 
                                 break;
@@ -83,12 +87,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                archer.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
 
                             break;
@@ -98,12 +103,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                towerOne.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
                             break;
                         case 4:
@@ -112,12 +118,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                towerTwo.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
                             break;
                         case 5:
@@ -126,12 +133,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                hero.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
                             break;
                         case 6:
@@ -140,12 +148,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                fence.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
                             break;
                         case 7:
@@ -154,12 +163,13 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                wall.tag = "Team1";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                             }
                             else
                             {
-                                Debug.Log("Ouside Area");
+                                Debug.Log("Occupied");
                             }
                             break;
                         case 8:
@@ -172,13 +182,14 @@ public class GameManager : MonoBehaviour
                                 {
                                     PlayerPrefs.SetInt("spawnersOne", PlayerPrefs.GetInt("spawnersOne") + 1);
                                     Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                    orb.tag = "Team1";
                                     currentSquare.isOccupied = true;
                                     orb.orbOne.SetActive(true);
                                     PlayerPrefs.SetInt("budgetOne", PlayerPrefs.GetInt("budgetOne") - PlayerPrefs.GetInt("currentPrice"));
                                 }
                                 else
                                 {
-                                    Debug.Log("Ouside Area");
+                                    Debug.Log("Occupied");
                                 }
                                 
                             }
@@ -205,6 +216,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject soldier = Instantiate(soldierPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                soldier.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -218,6 +230,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject archer = Instantiate(archerPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                archer.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -231,6 +244,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject towerOne = Instantiate(towerOnePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                towerOne.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -244,6 +258,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject towerTwo = Instantiate(towerTwoPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                towerTwo.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -257,6 +272,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject hero = Instantiate(heroPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                hero.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -270,6 +286,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject fence = Instantiate(fencePrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                fence.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -283,6 +300,7 @@ public class GameManager : MonoBehaviour
                             if (currentSquare.isOccupied == false)
                             {
                                 GameObject wall = Instantiate(wallPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                wall.tag = "Team2";
                                 currentSquare.isOccupied = true;
                                 PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
                             }
@@ -298,6 +316,7 @@ public class GameManager : MonoBehaviour
                                 {
                                     PlayerPrefs.SetInt("spawnersTwo", PlayerPrefs.GetInt("spawnersTwo") + 1);
                                     Spawner orb = Instantiate(orbPrefab, new Vector2(spawnPosition.x, spawnPosition.y), Quaternion.identity);
+                                    orb.tag = "Team2";
                                     currentSquare.isOccupied = true;
                                     orb.orbTwo.SetActive(true);
                                     PlayerPrefs.SetInt("budgetTwo", PlayerPrefs.GetInt("budgetTwo") - PlayerPrefs.GetInt("currentPrice"));
@@ -347,6 +366,11 @@ public class GameManager : MonoBehaviour
 
 
     }
-    
-    
+    public void StartGame()
+    {
+        startgame = 1;
+       // grid1.SetActive(false);
+    }
+
+
 }

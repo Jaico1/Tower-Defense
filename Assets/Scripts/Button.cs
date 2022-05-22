@@ -47,6 +47,8 @@ public class Button : MonoBehaviour
                         PlayerPrefs.SetInt("currentPrice", 0);
                         PlayerPrefs.SetString("currentPlayer", "playerTwo");
 
+                        
+
                     }  
                     else
                         StartCoroutine(LevelPopup(SWarning1));
@@ -60,7 +62,10 @@ public class Button : MonoBehaviour
                 else
                 {
                     if (PlayerPrefs.GetInt("spawnersTwo") == 3)
+                    {
                         GameManager.Instance.menuTwo.SetActive(false);
+                        GameManager.Instance.StartGame();
+                    }
                     else
                         StartCoroutine(LevelPopup(SWarning2));
                 }
