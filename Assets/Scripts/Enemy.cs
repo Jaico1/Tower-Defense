@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public bool started = false;
     private float canAttack;
 
-    GameObject CEnemy;
+    public GameObject CEnemy;
 
     void Start()
     {
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 
                     if (Vector2.Distance(transform.position, target.position) > attackdistance) //se acerca a atacar
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
                     }
                     if (Vector2.Distance(transform.position, target.position) <= attackdistance) //esta en posicion de attack

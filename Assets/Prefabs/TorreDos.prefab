@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4766708168420420131}
   - component: {fileID: 4766708168420420132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4766708168429925557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TorreDos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

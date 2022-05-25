@@ -65,6 +65,7 @@ public class Button : MonoBehaviour
                     {
                         GameManager.Instance.menuTwo.SetActive(false);
                         GameManager.Instance.StartGame();
+                        AstarPath.active.Scan();
                     }
                     else
                         StartCoroutine(LevelPopup(SWarning2));
