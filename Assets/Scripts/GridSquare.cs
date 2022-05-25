@@ -25,8 +25,9 @@ public class GridSquare : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("prueba");
+        
         GameManager.Instance.squarePos = this.GetComponent<Transform>().position;
         GameManager.Instance.currentSquare = this;
+        //Debug.Log(this);
     }
 }

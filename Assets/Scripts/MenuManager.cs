@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public bool menuOne;
     public bool menuTwo;
 
+
     public Text budget;
     public Text spawnerCount;
 
@@ -57,4 +58,6 @@ public class MenuManager : MonoBehaviour
         }
         
     }
+
+   
 }
