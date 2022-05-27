@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class HealthSpawner : MonoBehaviour
 {
 
     public float health = 0f;
@@ -30,11 +30,7 @@ public class Health : MonoBehaviour
         else if (health <= 0f)
         {
             health = 0f;
-            if ((gameObject.name == "Core1")||(gameObject.name=="Core2"))
-                gameObject.SetActive(false);
-            else
-                Destroy(gameObject);
-            
+            gameObject.SetActive(false);
         }
     }
 }

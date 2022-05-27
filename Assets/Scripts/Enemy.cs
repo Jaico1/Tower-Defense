@@ -68,10 +68,12 @@ public class Enemy : MonoBehaviour
     }
     void CheckGameStart()
     {
-        if(GameManager.Instance.startgame==1)
+        if (GameManager.Instance.startgame == 1)
         {
             started = true;
         }
+        else
+            started = false;
     }
     void Update()
     {
