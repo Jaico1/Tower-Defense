@@ -66,6 +66,7 @@ public class Button : MonoBehaviour
                         GameManager.Instance.menuTwo.SetActive(false);
                         GameManager.Instance.StartGame();
                         AstarPath.active.Scan();
+                        StartCoroutine(Scan());
                     }
                     else
                         StartCoroutine(LevelPopup(SWarning2));
@@ -91,5 +92,11 @@ public class Button : MonoBehaviour
         screenV.SetActive(true);
         yield return new WaitForSeconds(2);
         screenV.SetActive(false);
+    }
+    IEnumerator Scan()
+    {
+        yield return new WaitForSeconds(1);
+        AstarPath.active.Scan();
+        StartCoroutine(Scan());
     }
 }
